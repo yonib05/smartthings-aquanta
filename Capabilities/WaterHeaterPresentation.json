@@ -1,0 +1,219 @@
+{
+  "dashboard": {
+    "states": [
+      {
+        "label": "{{status.value}}",
+        "alternatives": [
+          {
+            "key": "normal",
+            "value": "Normal",
+            "type": "active"
+          },
+          {
+            "key": "away",
+            "value": "Away",
+            "type": "inactive"
+          }
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "displayType": "toggleSwitch",
+        "toggleSwitch": {
+          "command": {
+            "name": "setStatus",
+            "on": "normal",
+            "off": "away",
+            "argumentType": "string"
+          },
+          "state": {
+            "value": "status.value",
+            "on": "normal",
+            "off": "away",
+            "valueType": "string",
+            "label": "Status"
+          }
+        }
+      }
+    ],
+    "basicPlus": []
+  },
+  "detailView": [
+    {
+      "label": "Water Heater Status",
+      "displayType": "list",
+      "list": {
+        "command": {
+          "name": "setStatus",
+          "alternatives": [
+            {
+              "key": "away",
+              "value": "Away",
+              "type": "inactive"
+            },
+            {
+              "key": "normal",
+              "value": "Normal",
+              "type": "active"
+            }
+          ],
+          "argumentType": "string"
+        },
+        "state": {
+          "value": "status.value",
+          "valueType": "string",
+          "alternatives": [
+            {
+              "key": "away",
+              "value": "Away",
+              "type": "inactive"
+            },
+            {
+              "key": "normal",
+              "value": "Normal",
+              "type": "active"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "label": "Boost",
+      "displayType": "switch",
+      "switch": {
+        "command": {
+          "name": "setBoost",
+          "on": "true",
+          "off": "false"
+        },
+        "state": {
+          "value": "boosted.value",
+          "on": "on",
+          "off": "off",
+          "alternatives": [
+            {
+              "key": "on",
+              "value": "Boost",
+              "type": "active"
+            },
+            {
+              "key": "off",
+              "value": "Off",
+              "type": "inactive"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "label": "Temperature",
+      "displayType": "state",
+      "state": {
+        "label": "{{temperature.value}} {{temperature.unit}}",
+        "unit": "temperature.unit"
+      }
+    },
+    {
+      "label": "Hot Water",
+      "displayType": "state",
+      "state": {
+        "label": "{{level.value}}{{level.unit}}",
+        "unit": "level.unit"
+      }
+    }
+  ],
+  "automation": {
+    "conditions": [
+      {
+        "label": "Water Heater Status",
+        "displayType": "list",
+        "list": {
+          "alternatives": [
+            {
+              "key": "away",
+              "value": "Away",
+              "type": "inactive"
+            },
+            {
+              "key": "normal",
+              "value": "Normal",
+              "type": "active"
+            }
+          ],
+          "value": "status.value",
+          "valueType": "string"
+        }
+      },
+      {
+        "label": "Water Heater Boost",
+        "displayType": "list",
+        "list": {
+          "alternatives": [
+            {
+              "key": "on",
+              "value": "Off",
+              "type": "inactive"
+            },
+            {
+              "key": "off",
+              "value": "Boosted",
+              "type": "active"
+            }
+          ],
+          "value": "boosted.value",
+          "valueType": "string"
+        }
+      },
+      {
+        "label": "Percent Hot Water Remaining",
+        "displayType": "numberField",
+        "numberField": {
+          "value": "level.value",
+          "unit": "level.unit",
+          "range": [0, 100]
+        }
+      }
+    ],
+    "actions": [
+      {
+        "label": "Set Water Heater Status",
+        "displayType": "list",
+        "list": {
+          "alternatives": [
+            {
+              "key": "away",
+              "value": "Away",
+              "type": "inactive"
+            },
+            {
+              "key": "normal",
+              "value": "Normal",
+              "type": "active"
+            }
+          ],
+          "supportedValues": "status.value"
+        }
+      },
+      {
+        "label": "Boost",
+        "displayType": "list",
+        "list": {
+          "alternatives": [
+            {
+              "key": "on",
+              "value": "Off",
+              "type": "inactive"
+            },
+            {
+              "key": "off",
+              "value": "Boost",
+              "type": "active"
+            }
+          ],
+          "supportedValues": "boosted.value"
+        }
+      }
+    ]
+  }
+}

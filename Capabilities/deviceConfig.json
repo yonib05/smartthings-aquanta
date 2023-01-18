@@ -1,0 +1,89 @@
+{
+  "mnmn": "fHfq",
+  "vid": "ST_ab3749ba-51fe-4959-b618-4fe431815b2e",
+  "version": "0.0.1",
+  "type": "profile",
+  "dashboard": {
+    "states": [
+      {
+        "component": "main",
+        "capability": "chapterstreet47138.waterHeaterStatus",
+        "version": 1,
+        "idx": 0,
+        "group": "main",
+        "values": [{
+          "key": "status.value",
+          "enabledValues": [
+            "normal", "away"
+          ]
+        }],
+        "composite": false
+      }
+    ],
+    "actions": [
+      {
+        "component": "main",
+        "capability": "chapterstreet47138.waterHeaterStatus",
+        "version": 1,
+        "values": [
+          {
+            "key": "status.value",
+            "enabledValues": [
+              "normal", "away"
+            ]
+          }
+        ],
+        "idx": 0,
+        "group": "main"
+      }
+    ],
+    "basicPlus": []
+  },
+  "detailView": [
+    {
+      "component": "main",
+      "capability": "chapterstreet47138.waterHeaterStatus",
+      "version": 1,
+      "values": [{
+        "key": "status.value",
+        "enabledValues": [
+          "normal", "away"
+        ]
+      }],
+      "patch": []
+    },
+    {
+      "component": "main",
+      "capability": "chapterstreet47138.waterHeaterStatus",
+      "version": 1,
+      "values": [{
+        "key": "boosted.value",
+        "enabledValues": [ "on", "off" ]
+      }],
+      "patch": []
+    }
+  ],
+  "automation": {
+    "conditions": [
+      {
+        "component": "main",
+        "capability": "chapterstreet47138.waterHeaterStatus",
+        "version": 1,
+        "values": [],
+        "patch": [],
+        "exclusion": []
+      }
+    ],
+    "actions": [
+      {
+        "component": "main",
+        "capability": "chapterstreet47138.waterHeaterStatus",
+        "version": 1,
+        "values": [],
+        "patch": [],
+        "exclusion": []
+      }
+    ]
+  },
+  "migration": true
+}

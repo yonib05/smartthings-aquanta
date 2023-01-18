@@ -1,0 +1,128 @@
+{
+  "name": "Water Heater Status",
+  "ephemeral": false,
+  "attributes": {
+    "status": {
+      "schema": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "enum": [
+              "normal",
+              "away"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "value"
+        ]
+      },
+      "setter": "setStatus",
+      "enumCommands": []
+    },
+    "boosted": {
+      "schema": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "enum": [
+              "on",
+              "off"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "value"
+        ]
+      },
+      "setter": "setBoost",
+      "enumCommands": []
+    },
+    "level": {
+      "schema": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "unit": {
+            "type": "string",
+            "enum": [
+              "%"
+            ],
+            "default": "%"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "value"
+        ]
+      },
+      "enumCommands": []
+    },
+    "temperature": {
+      "schema": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "integer",
+            "minimum": -50,
+            "maximum": 300
+          },
+          "unit": {
+            "type": "string",
+            "enum": [
+              "F", "C"
+            ],
+            "default": "F"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "value"
+        ]
+      },
+      "enumCommands": []
+    }
+  },
+  "commands": {
+    "setStatus": {
+      "name": "setStatus",
+      "arguments": [
+        {
+          "name": "status",
+          "optional": false,
+          "schema": {
+            "type": "string",
+            "enum": [
+              "normal",
+              "away"
+            ]
+          }
+        }
+      ]
+    },
+    "setBoost": {
+      "name": "setBoost",
+      "arguments": [
+        {
+          "name": "boosted",
+          "optional": false,
+          "schema": {
+            "type": "string",
+            "enum": [
+              "on",
+              "off"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
