@@ -1,0 +1,30 @@
+{
+  "name": "aquanta-smarthings",
+  "version": "1.0.0",
+  "description": "Aquanta Smart Water heater Smarthings Integration",
+  "main": "index.ts",
+  "keywords": [
+    "st-schema",
+    "aquanta"
+  ],
+  "author": "SmartThings",
+  "license": "Apache-2.0",
+  "scripts": {
+    "compile": "tsc",
+    "prebuild": "rm -rf dist",
+    "build": "esbuild index.ts --bundle --platform=node --target=es2020 --outfile=dist/index.js",
+    "postbuild": "cd dist && zip -r index.zip index.js*"
+  },
+  "dependencies": {
+    "axios": "^1.2.2",
+    "date-fns": "^2.29.3",
+    "st-schema": "^1.4.2"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.109",
+    "@types/node": "^18.11.18",
+    "esbuild": "^0.17.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.4"
+  }
+}
