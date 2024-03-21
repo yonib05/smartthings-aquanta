@@ -55,7 +55,7 @@ Actions:
     Configuration:
       # Required - Steps are sequential instructions that run shell commands
       Steps:
-        - Run: aws lambda update-function-code \ --function-name  aquanta-smartthings \
+        - Run: aws lambda update-function-code --function-name  aquanta-smartthings
             --zip-file $Lambda_Deploy
     Compute:
       Type: Lambda
