@@ -55,10 +55,10 @@ Actions:
     Configuration:
       # Required - Steps are sequential instructions that run shell commands
       Steps:
-        - Run: cd $CATALYST_SOURCE_DIR_Lambda_Deploy
+        - Run: cd $CATALYST_SOURCE_DIR_Lambda_Deploy/dist
         - Run: ls
         - Run: aws lambda update-function-code --function-name  aquanta-smartthings
-            --zip-file fileb://$CATALYST_SOURCE_DIR_Lambda_Deploy/index.zip
+            --zip-file fileb://$CATALYST_SOURCE_DIR_Lambda_Deploy/dist/index.zip
     Compute:
       Type: Lambda
       Fleet: Linux.x86-64.Large
