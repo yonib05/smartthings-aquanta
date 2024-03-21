@@ -62,3 +62,8 @@ Actions:
       Fleet: Linux.x86-64.Large
     DependsOn:
       - Build_Lambda
+    Environment:
+      Connections:
+        - Role: CodeCatalystWorkflowDevelopmentRole-fjonatse-personal
+          Name: jsegev01_personal
+      Name: Production
