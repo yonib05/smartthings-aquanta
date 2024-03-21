@@ -31,8 +31,10 @@ Actions:
     Configuration:
       # Required - Steps are sequential instructions that run shell commands
       Steps:
+        - Run: yum install unzip
         - Run: npm install
         - Run: npm run build
     Compute:
-      Type: Lambda
+      Type: EC2
       Fleet: Linux.x86-64.Large
+    Timeout: 15
