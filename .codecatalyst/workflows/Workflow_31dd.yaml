@@ -26,7 +26,7 @@ Actions:
       Artifacts:
         - Name: Lambda_Deploy
           Files:
-            - ./index.zip
+            - .dist/index.zip
     # Defines the action's properties.
     Configuration:
       # Required - Steps are sequential instructions that run shell commands
