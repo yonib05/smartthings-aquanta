@@ -38,3 +38,27 @@ Actions:
       Type: EC2
       Fleet: Linux.x86-64.Large
     Timeout: 15
+  Deploy_Lambda:
+    # Identifies the action. Do not modify this value.
+    Identifier: aws/build@v1.0.0
+    # Specifies the source and/or artifacts to pass to the action as input.
+    Inputs:
+      Artifacts:
+        - Lambda_Deploy
+    Outputs:
+      # Optional; Automatically discover reports for popular test frameworks
+      AutoDiscoverReports:
+        Enabled: true
+        # Use as prefix for the report files
+        ReportNamePrefix: rpt
+    # Defines the action's properties.
+    Configuration:
+      # Required - Steps are sequential instructions that run shell commands
+      Steps:
+        - Run: aws lambda update-function-code \ --function-name  aquanta-smartthings \
+            --zip-file $Lambda_Deploy
+    Compute:
+      Type: Lambda
+      Fleet: Linux.x86-64.Large
+    DependsOn:
+      - Build_Lambda
