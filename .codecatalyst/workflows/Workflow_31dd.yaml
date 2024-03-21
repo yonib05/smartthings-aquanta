@@ -48,7 +48,7 @@ Actions:
     Outputs:
       # Optional; Automatically discover reports for popular test frameworks
       AutoDiscoverReports:
-        Enabled: true
+        Enabled: false
         # Use as prefix for the report files
         ReportNamePrefix: rpt
     # Defines the action's properties.
@@ -56,7 +56,7 @@ Actions:
       # Required - Steps are sequential instructions that run shell commands
       Steps:
         - Run: aws lambda update-function-code --function-name  aquanta-smartthings
-            --zip-file ${Lambda_Deploy}
+            --zip-file $CATALYST_SOURCE_DIR_Lambda_Deploy
     Compute:
       Type: Lambda
       Fleet: Linux.x86-64.Large
