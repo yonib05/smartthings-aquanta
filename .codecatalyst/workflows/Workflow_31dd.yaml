@@ -1,4 +1,4 @@
-Name: Workflow_31dd
+Name: Deploy_Lambda
 SchemaVersion: "1.0"
 
 # Optional - Set automatic triggers.
@@ -9,7 +9,7 @@ Triggers:
 
 # Required - Define action configurations.
 Actions:
-  Build_19:
+  Build_Lambda:
     # Identifies the action. Do not modify this value.
     Identifier: aws/build@v1.0.0
     # Specifies the source and/or artifacts to pass to the action as input.
@@ -31,7 +31,7 @@ Actions:
     Configuration:
       # Required - Steps are sequential instructions that run shell commands
       Steps:
-        - Run: npm install --production
+        - Run: npm install
         - Run: npm run build
     Compute:
       Type: Lambda
